@@ -1,4 +1,4 @@
-const BASE_URL = 'https://americoav3-production.up.railway.app/';
+const BASE_URL = "https://americoav3-production.up.railway.app/api";
 
 const form = document.getElementById('main-form');
 const deleteForm = document.getElementById('delete-form');
@@ -55,9 +55,9 @@ form.addEventListener('submit', async function(event) {
 
     if (entity === 'hospedes') {
         data.rg = document.getElementById('rg').value;
-        data.fidelidade = document.getElementById('fidelidade').checked; // CORRIGIDO
+        data.fidelidade = document.getElementById('fidelidade').checked;
     } else {
-        data.funcao = document.getElementById('funcao').value; // CORRIGIDO
+        data.funcao = document.getElementById('funcao').value;
     }
 
     const response = await fetch(url, {
@@ -141,9 +141,9 @@ updateFormEl.addEventListener('submit', async function(event) {
 
     if (entity === 'hospedes') {
         data.rg = document.getElementById('update-rg').value;
-        data.fidelidade = document.getElementById('update-fidelidade').checked; // CORRIGIDO
+        data.fidelidade = document.getElementById('update-fidelidade').checked;
     } else {
-        data.funcao = document.getElementById('update-funcao').value; // CORRIGIDO
+        data.funcao = document.getElementById('update-funcao').value;
     }
 
     const response = await fetch(`${BASE_URL}/${entity}/${cpf}`, {
