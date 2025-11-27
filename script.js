@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = 'https://americoav3-production.up.railway.app/';
 
 const form = document.getElementById('main-form');
 const deleteForm = document.getElementById('delete-form');
