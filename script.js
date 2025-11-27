@@ -21,20 +21,41 @@ function updateForm() {
 
     const rgField = document.getElementById('rg');
     const fidelidadeToggle = document.querySelector('#main-form .toggle');
-    const funcaoFields = document.getElementById('funcionario-fields');
+    const funcionarioFields = document.getElementById('funcionario-fields');
 
     if (entity === 'hospedes') {
         rgField.style.display = 'block';
         fidelidadeToggle.style.display = 'flex';
-        funcaoFields.style.display = 'none';
+        funcionarioFields.style.display = 'none';
     } else {
         rgField.style.display = 'none';
         fidelidadeToggle.style.display = 'none';
-        funcaoFields.style.display = 'block';
+        funcionarioFields.style.display = 'block';
     }
 }
 
-document.addEventListener('DOMContentLoaded', updateForm);
+function updateUpdateForm() {
+    const entity = document.getElementById('update-entity-select').value;
+
+    const updateRg = document.getElementById('update-rg');
+    const updateFidelidade = document.querySelector('#update-form .toggle');
+    const updateFuncao = document.getElementById('update-funcao');
+
+    if (entity === 'hospedes') {
+        updateRg.style.display = 'block';
+        updateFidelidade.style.display = 'flex';
+        updateFuncao.style.display = 'none';
+    } else {
+        updateRg.style.display = 'none';
+        updateFidelidade.style.display = 'none';
+        updateFuncao.style.display = 'block';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateForm();
+    updateUpdateForm();
+});
 
 async function handleResponse(response) {
     const data = await response.json();
@@ -155,3 +176,6 @@ updateFormEl.addEventListener('submit', async function(event) {
     await handleResponse(response);
     listar(entity);
 });
+
+document.getElementById('update-entity-select')
+    .addEventListener('change', updateUpdateForm);
