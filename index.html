@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Hotel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Sistema de Gestão Hoteleira</h1>
+
+<div class="container">
+
+    <div class="panel">
+        <h3>Cadastro de Usuários</h3>
+
+        <div id="status-message" class="status-message"></div>
+
+        <select id="entity-select" onchange="updateForm()">
+            <option value="hospedes">Hóspede</option>
+            <option value="funcionarios">Funcionário</option>
+        </select>
+
+        <form id="main-form">
+
+            <input type="text" id="cpf" placeholder="CPF" required>
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="number" id="idade" placeholder="Idade" required>
+            <input type="text" id="rg" placeholder="RG">
+
+            <label class="toggle">
+                <input type="checkbox" id="fidelidade">
+                <span class="slider"></span>
+                Cliente Fidelidade
+            </label>
+
+            <div id="funcionario-fields" style="display: none;">
+                <input type="text" id="funcao" placeholder="Função">
+            </div>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+    <div class="panel">
+        <h3>Listar e Excluir</h3>
+
+        <div class="two-cols">
+            <button onclick="listar('hospedes')">Listar Hóspedes</button>
+            <button onclick="listar('funcionarios')">Listar Funcionários</button>
+        </div>
+
+        <form id="delete-form">
+            <select id="delete-entity-select">
+                <option value="hospedes">Hóspede</option>
+                <option value="funcionarios">Funcionário</option>
+            </select>
+
+            <input type="text" id="delete-cpf" placeholder="CPF para excluir" required>
+            <button type="submit">Excluir</button>
+        </form>
+
+        <h4>Resultados:</h4>
+        <ul id="results-list"></ul>
+
+        <br><hr><br>
+
+        <h3>Atualizar Registro</h3>
+
+        <form id="update-form">
+            <select id="update-entity-select">
+                <option value="hospedes">Hóspede</option>
+                <option value="funcionarios">Funcionário</option>
+            </select>
+
+            <input type="text" id="update-cpf" placeholder="CPF a ser atualizado" required>
+            <input type="text" id="update-nome" placeholder="Novo Nome">
+            <input type="number" id="update-idade" placeholder="Nova Idade">
+            <input type="text" id="update-rg" placeholder="Novo RG">
+
+            <label class="toggle">
+                <input type="checkbox" id="update-fidelidade">
+                <span class="slider"></span>
+                Cliente Fidelidade
+            </label>
+
+            <input type="text" id="update-funcao" placeholder="Nova Função">
+
+            <button type="submit">Atualizar</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
